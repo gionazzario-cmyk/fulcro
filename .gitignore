@@ -1,0 +1,9 @@
+.build/
+.swiftpm/
+.DS_Store
+__pycache__/
+*.pyc
+Jarvis.app/
+Fulcro.app/
+build-pubblico/
+sito/dist/

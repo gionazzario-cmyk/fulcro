@@ -1,0 +1,268 @@
+:root{
+  --ciano:#00f0ff;
+  --ciano-tenue:#70d8ff;
+  --notte:#030a14;
+  --notte-profonda:#01050a;
+  --pannello:rgba(3,20,38,.72);
+  --bordo:rgba(0,240,255,.30);
+  --bordo-tenue:rgba(0,240,255,.12);
+  --testo:#c0e8ff;
+  --bianco:#eefaff;
+  --allarme:#ff3366;
+  --passo:30px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--notte);
+  color:var(--testo);
+  font-family:"Courier New",Courier,monospace;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+/* la griglia del suo design */
+.griglia{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(0,64,110,.35),transparent 70%),
+    linear-gradient(rgba(0,240,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,240,255,.035) 1px,transparent 1px),
+    linear-gradient(180deg,var(--notte),var(--notte-profonda));
+  background-size:100% 100%,var(--passo) var(--passo),var(--passo) var(--passo),100% 100%;
+}
+a{color:var(--ciano)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ciano);outline-offset:3px}
+code{background:rgba(0,240,255,.08);padding:.1em .4em;border:1px solid var(--bordo-tenue);font-size:.95em;word-break:break-word}
+pre{margin:12px 0 0;overflow:auto}
+pre code{display:block;padding:12px;background:rgba(1,10,20,.85);white-space:pre}
+
+header{
+  position:sticky;top:0;z-index:5;
+  display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
+  padding:14px clamp(16px,4vw,44px);
+  background:rgba(2,10,20,.92);
+  border-bottom:1px solid var(--bordo);
+  box-shadow:0 0 22px rgba(0,240,255,.10);
+}
+.marca{display:flex;align-items:center;gap:14px}
+.nome{letter-spacing:.42em;color:var(--ciano);font-weight:700;font-size:15px}
+nav{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;letter-spacing:.06em}
+nav a{color:var(--testo);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+nav a:hover{color:var(--ciano);border-bottom-color:var(--bordo)}
+nav a.mini{color:rgba(192,232,255,.45)}
+
+main{max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,44px) 40px}
+section{padding:clamp(34px,6vw,64px) 0;border-bottom:1px solid var(--bordo-tenue)}
+h1{font-size:clamp(28px,4.6vw,44px);line-height:1.15;margin:0 0 14px;color:var(--bianco);letter-spacing:-.5px}
+h1 em{font-style:normal;color:var(--ciano);text-shadow:0 0 18px rgba(0,240,255,.45)}
+h2{font-size:clamp(19px,2.6vw,24px);letter-spacing:.16em;text-transform:uppercase;color:var(--ciano);margin:0 0 22px}
+h3{font-size:15px;letter-spacing:.08em;color:var(--ciano-tenue);margin:0 0 8px}
+p{margin:0 0 14px}
+.sottotitolo{font-size:clamp(16px,2vw,18px);max-width:52ch;color:var(--testo)}
+
+.apertura{display:grid;gap:clamp(26px,4vw,48px);grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:start;padding-top:clamp(34px,6vw,72px)}
+@media (max-width:900px){.apertura{grid-template-columns:1fr}}
+
+.scarica{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:26px 0 22px}
+.pulsone{
+  display:inline-block;padding:14px 26px;
+  background:var(--ciano);color:var(--notte);
+  font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:14px;
+  text-decoration:none;border:1px solid var(--ciano);
+  box-shadow:0 0 18px rgba(0,240,255,.45);
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.pulsone:hover{transform:translateY(-2px);box-shadow:0 0 26px rgba(0,240,255,.7)}
+.nota{font-size:12.5px;color:rgba(192,232,255,.55);max-width:44ch}
+.verita{list-style:none;padding:0;margin:0;font-size:13.5px}
+.verita li{padding:9px 0 9px 20px;border-top:1px dashed var(--bordo-tenue);position:relative}
+.verita li::before{content:"";position:absolute;left:0;top:17px;width:7px;height:7px;background:var(--ciano);box-shadow:0 0 10px var(--ciano)}
+
+.shot{margin:0}
+.shot img{display:block;width:100%;height:auto;border:1px solid var(--bordo);background:var(--notte-profonda)}
+.shot figcaption{font-size:12.5px;color:rgba(192,232,255,.5);padding-top:10px;border-left:3px solid var(--bordo);padding-left:12px;margin-top:12px}
+.shot.piccolo{max-width:420px;margin-top:34px}
+
+.colonne{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.blocco{background:var(--pannello);border:1px solid var(--bordo);padding:18px;position:relative;box-shadow:inset 0 0 16px rgba(0,240,255,.05)}
+.blocco::before,.blocco::after{content:"";position:absolute;width:11px;height:11px}
+.blocco::before{top:-1px;left:-1px;border-top:2px solid var(--ciano);border-left:2px solid var(--ciano)}
+.blocco::after{bottom:-1px;right:-1px;border-bottom:2px solid var(--ciano);border-right:2px solid var(--ciano)}
+.blocco p{margin:0;font-size:14px;color:var(--testo)}
+
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--bordo-tenue);vertical-align:top}
+th{color:var(--ciano);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px;width:24%}
+@media (max-width:640px){th{display:block;width:auto;border:0;padding-bottom:0}}
+
+.passi{padding-left:0;list-style:none;counter-reset:p;margin:0}
+.passi li{counter-increment:p;position:relative;padding:0 0 18px 46px;border-left:1px solid var(--bordo-tenue);margin-left:16px}
+.passi li:last-child{border-left-color:transparent}
+.passi li::before{
+  content:counter(p,decimal-leading-zero);position:absolute;left:-16px;top:0;
+  width:32px;height:32px;display:grid;place-items:center;
+  background:var(--notte);border:1px solid var(--ciano);color:var(--ciano);font-size:12px}
+.perche{background:rgba(255,51,102,.06);border-left:3px solid var(--allarme);padding:14px 16px;font-size:14px}
+.elenchi{padding-left:20px;margin:0;font-size:14.5px}
+.elenchi li{padding:7px 0}
+
+.chiusura{border-bottom:0;text-align:left}
+.chiusura p{max-width:60ch}
+
+footer{
+  display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
+  padding:22px clamp(16px,4vw,44px);
+  border-top:1px solid var(--bordo);background:rgba(2,10,20,.9);
+  font-size:12px;letter-spacing:.06em;color:rgba(192,232,255,.5)}
+
+/* il reattore, in CSS puro */
+.reattore{position:relative;display:block;width:58px;height:58px;flex:0 0 auto}
+.reattore i{position:absolute;border-radius:50%;display:block}
+.reattore i:nth-child(1){inset:0;border:2px dashed rgba(0,240,255,.4);animation:gira 20s linear infinite}
+.reattore i:nth-child(2){inset:12.5%;border:2px solid var(--ciano);border-top-color:transparent;animation:gira 10s linear infinite reverse;box-shadow:0 0 12px rgba(0,240,255,.55)}
+.reattore i:nth-child(3){inset:25%;border:1px dotted rgba(0,240,255,.5);animation:gira 15s linear infinite}
+.reattore b{
+  position:absolute;inset:38%;border-radius:50%;
+  background:radial-gradient(circle,#fff 0%,var(--ciano) 60%,transparent 100%);
+  box-shadow:0 0 18px var(--ciano),0 0 34px rgba(0,240,255,.5);
+  animation:pulsa 2s ease-in-out infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+@keyframes pulsa{0%,100%{transform:scale(.92);opacity:.85}50%{transform:scale(1.12);opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .reattore i,.reattore b{animation:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---- commenti ---- */
+.commenti-form{display:grid;gap:12px;max-width:760px;margin:22px 0 26px;
+  background:var(--pannello);border:1px solid var(--bordo);padding:18px;
+  box-shadow:inset 0 0 16px rgba(0,240,255,.05)}
+.commenti-form label{display:grid;gap:6px;font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ciano-tenue)}
+.commenti-form input,.commenti-form textarea{
+  font:inherit;font-size:15px;text-transform:none;letter-spacing:normal;
+  background:rgba(0,240,255,.05);border:1px solid var(--bordo);color:var(--bianco);
+  padding:11px 12px;border-radius:0;outline:none;width:100%}
+.commenti-form textarea{resize:vertical;min-height:74px}
+.commenti-form input:focus,.commenti-form textarea:focus{
+  border-color:var(--ciano);box-shadow:0 0 12px rgba(0,240,255,.35)}
+.commenti-form #codice{text-transform:uppercase;letter-spacing:.32em;font-weight:700;max-width:220px}
+.riga{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.commenti-form button{font:inherit;font-size:13px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;padding:11px 24px;cursor:pointer;
+  background:rgba(0,240,255,.18);border:1px solid var(--ciano);color:var(--ciano)}
+.commenti-form button:hover:not(:disabled){background:var(--ciano);color:var(--notte);
+  box-shadow:0 0 16px rgba(0,240,255,.55)}
+.commenti-form button:disabled{opacity:.45;cursor:progress}
+#stato{font-size:13px;color:rgba(192,232,255,.65)}
+#stato.ok{color:var(--ciano)}
+#stato.errore{color:var(--allarme)}
+.commenti-lista{display:grid;gap:10px;max-width:760px}
+.commento{background:rgba(0,240,255,.05);border:1px solid var(--bordo-tenue);
+  border-left:3px solid var(--ciano);padding:12px 14px}
+.commento header{display:flex;gap:12px;align-items:baseline;font-size:12px}
+.commento header b{color:var(--ciano);letter-spacing:.08em}
+.commento header span{color:rgba(192,232,255,.45)}
+.commento p{margin:7px 0 0;font-size:14.5px;color:var(--testo)}
+
+/* ============================================================
+   ANIMAZIONI
+   Regole che si è data: si muove solo ciò che entra nello
+   schermo, solo con transform/opacity (la GPU disegna, la CPU
+   riposa — la stessa logica del piano di risparmio dell'app),
+   e se il sistema operativo chiede "meno movimento" non si
+   muove niente. Nessuna libreria, nessuna rete.
+   ============================================================ */
+
+/* senza JavaScript la pagina si legge comunque: il "nascosto" vale
+   solo dopo che lo script ha promesso di mostrarla (classe su <html>) */
+.giu [data-ani]{opacity:0;transform:translateY(18px)}
+.giu [data-ani].vista{
+  opacity:1;transform:none;
+  transition:opacity .6s cubic-bezier(.16,1,.3,1) calc(var(--i,0)*70ms),
+             transform .6s cubic-bezier(.16,1,.3,1) calc(var(--i,0)*70ms);
+}
+
+/* il nome che si materializza lettera per lettera: la sua curva,
+   la stessa del file da cui è partito tutto (blur + scala) */
+@keyframes materia{
+  from{opacity:0;filter:blur(12px);transform:scale(.62)}
+  to{opacity:1;filter:blur(0);transform:scale(1)}
+}
+.nome span{display:inline-block;animation:materia .8s cubic-bezier(.16,1,.3,1) both;
+  animation-delay:calc(var(--i,0)*65ms + 150ms)}
+
+/* la riga che scansisce l'intestazione due volte, all'avvio */
+header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--ciano),transparent);
+  transform:translateX(-100%);opacity:0}
+.acceso header::after{animation:scansione 1.6s cubic-bezier(.4,0,.2,1) .15s 2}
+@keyframes scansione{
+  0%{transform:translateX(-100%);opacity:0}
+  15%{opacity:1}
+  100%{transform:translateX(100%);opacity:0}
+}
+
+/* le card: si sollevano, le squadrette si allargano, una luce corre
+   sul bordo alto la prima volta che la card entra in vista */
+.blocco{transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s ease,border-color .35s ease}
+.blocco:hover{transform:translateY(-4px);border-color:rgba(0,240,255,.55);
+  box-shadow:inset 0 0 22px rgba(0,240,255,.10),0 12px 30px rgba(0,0,0,.45)}
+.blocco::before,.blocco::after{transition:width .35s ease,height .35s ease}
+.blocco:hover::before,.blocco:hover::after{width:20px;height:20px}
+.blocco .luce{position:absolute;left:0;top:-1px;height:1px;width:0;background:var(--ciano);
+  box-shadow:0 0 10px var(--ciano)}
+.blocco.vista .luce{animation:corri 1.2s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes corri{0%{width:0;opacity:1}70%{width:100%;opacity:1}100%{width:100%;opacity:0}}
+
+/* le immagini: una riga di scansione, come uno schermo che si refresha */
+.shot{position:relative;overflow:hidden}
+.shot::after{content:"";position:absolute;left:0;right:0;top:0;height:24%;
+  background:linear-gradient(180deg,transparent,rgba(0,240,255,.18),transparent);
+  transform:translateY(-130%);opacity:0;pointer-events:none}
+.shot.vista::after{animation:crt 1.3s ease-out .1s 1}
+@keyframes crt{0%{transform:translateY(-130%);opacity:1}100%{transform:translateY(480%);opacity:0}}
+.shot img{transition:transform .7s cubic-bezier(.16,1,.3,1),filter .7s ease}
+.shot:hover img{transform:scale(1.015);filter:brightness(1.07)}
+
+/* il pulsante di download: alone che respira e luccichio che passa al hover */
+.pulsone{position:relative;overflow:hidden}
+.pulsone::after{content:"";position:absolute;top:0;left:0;width:38%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);
+  transform:translateX(-180%) skewX(-18deg);transition:transform .7s ease}
+.pulsone:hover::after{transform:translateX(430%) skewX(-18deg)}
+@keyframes respira{0%,100%{box-shadow:0 0 16px rgba(0,240,255,.35)}50%{box-shadow:0 0 30px rgba(0,240,255,.8)}}
+.acceso .pulsone{animation:respira 3.6s ease-in-out infinite}
+
+/* la griglia di fondo deriva piano: transform, non background-position
+   (lì avrebbe costretto il browser a ridipingere tutta la pagina) */
+@keyframes deriva{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(-14px,-10px,0)}100%{transform:translate3d(0,0,0)}}
+.acceso .griglia{animation:deriva 28s ease-in-out infinite}
+
+/* l'apertura ha un alone che segue il puntatore: si muove solo se
+   muovi la mano, non è un ornamento che gira per conto suo */
+.apertura{position:relative}
+.apertura .alone{position:absolute;inset:-8% -18%;pointer-events:none;z-index:-1;opacity:0;
+  background:radial-gradient(340px circle at var(--x,50%) var(--y,32%),rgba(0,240,255,.14),transparent 70%);
+  transition:opacity .6s ease}
+.acceso .apertura .alone{opacity:1}
+
+/* i numeri che salgono quando arrivano in vista */
+[data-conta]{font-variant-numeric:tabular-nums}
+
+/* i commenti appena letti entrano uno dopo l'altro */
+.commento{animation:materia .55s cubic-bezier(.16,1,.3,1) both;
+  animation-delay:calc(var(--i,0)*60ms)}
+
+/* chi ha chiesto meno movimento non deve ricevere niente di tutto questo:
+   la pagina si vede subito, ferma, intera */
+@media (prefers-reduced-motion:reduce){
+  .giu [data-ani]{opacity:1;transform:none}
+  .acceso .griglia,.acceso .pulsone,.nome span,.blocco.vista .luce,
+  .shot.vista::after,header::after,.commento{animation:none}
+  .blocco:hover,.shot:hover img{transform:none}
+  .pulsone::after{display:none}
+  *{transition-duration:1ms !important}
+}

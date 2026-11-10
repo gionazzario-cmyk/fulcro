@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key>
+    <string>Jarvis</string>
+    <key>CFBundleDisplayName</key>
+    <string>Jarvis</string>
+    <key>CFBundleIdentifier</key>
+    <string>digio.jarvis.assistente</string>
+    <key>CFBundleExecutable</key>
+    <string>Jarvis</string>
+    <key>CFBundleVersion</key>
+    <string>1.0</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleIconFile</key>
+    <string>Jarvis</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>14.0</string>
+    <key>LSUIElement</key>
+    <false/>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Jarvis ascolta la tua voce solo su questo Mac e la trascrive in locale con whisper.cpp.</string>
+    <key>NSContactsUsageDescription</key>
+    <string>Jarvis legge l'Anagrafica per dirti chi ti ha scritto (invece del numero) e per salvare i contatti che gli ditichi a voce. I nomi restano su questo Mac.</string>
+    <key>NSCalendarsFullAccessUsageDescription</key>
+    <string>Jarvis guarda il tuo calendario solo per rispondere agli impegni (se sei libero sabato alle 16) e per il controllo dei compiti. Niente esce dal Mac.</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>Jarvis guarda il tuo calendario solo per rispondere agli impegni (se sei libero sabato alle 16) e per il controllo dei compiti. Niente esce dal Mac.</string>
+    <key>NSAppleEventsUsageDescription</key>
+    <string>Jarvis usa Messaggi, Mail e i controlli del sistema per eseguire quello che gli chiedi: scrivere un messaggio, aprire una chat, leggere la posta.</string>
+    <key>NSSupportsAutomaticTermination</key>
+    <false/>
+</dict>
+</plist>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fulcro — assistente vocale che gira sul tuo Mac</title>
+<meta name="description" content="Fulcro è un assistente per macOS che sta tutto in locale: parli con ⌥ Spazio, apre app in background, legge compiti, meteo, F1, stampante 3D e lo stato del Mac. Download gratuito, senza account e senza cloud.">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("giu");</script>
+</head>
+<body>
+<div class="griglia" aria-hidden="true"></div>
+
+<header>
+  <div class="marca">
+    <span class="reattore" aria-hidden="true"><i></i><i></i><i></i><b></b></span>
+    <span class="nome">FULCRO</span>
+  </div>
+  <nav>
+    <a href="#fa">Cosa fa</a>
+    <a href="#requisiti">Requisiti</a>
+    <a href="#installazione">Installazione</a>
+    <a href="#privacy">Privacy</a>
+    <a class="mini" href="ISTRUZIONI.md">Testo delle istruzioni</a>
+  </nav>
+</header>
+
+<main>
+  <section class="apertura">
+    <div class="testo">
+      <h1>Un assistente che sta <em>tutto sul tuo Mac</em>.</h1>
+      <p class="sottotitolo">Niente cloud, niente account, niente abbonamento.
+        Gli dici <b>⌥ Opzione + Spazio</b> e parli: lui esegue sul computer, e ti
+        risponde a voce.</p>
+      <div class="scarica">
+        <a class="pulsone" href="download/Fulcro-1.1.zip" download>Fulcro per macOS — scarica</a>
+        <span class="nota">2,9 MB · zip · versione 1.1 · Apple Silicon · macOS 14 o più nuovo ·
+          <b>non firmato Apple</b>, leggi <a href="#installazione">sotto</a></span>
+      </div>
+      <ul class="verita" data-ani>
+        <li>Funziona davvero solo con <b>Ollama</b> installato (modello <code>qwen3:8b</code>): è il cervello.</li>
+        <li>Al primo avvio macOS lo blocca: non è un virus, è una firma locale. Si apre lo stesso con due clic.</li>
+        <li>Le voci che non puoi fare non sono simulate: dicono «non disponibile».</li>
+      </ul>
+    </div>
+    <figure class="shot" data-ani>
+      <img src="assets/finestra.jpg" width="1600" height="1030"
+           alt="La finestra di Fulcro: reattore ciano in alto, lista chat a sinistra, chat al centro, diagnostica del Mac a destra.">
+      <figcaption>La finestra grande. A destra c'è la diagnostica vera del Mac: uso CPU,
+        carico, RAM, spazio sul disco, batteria. Le temperature non ci sono perché macOS
+        non le fa leggere senza root.</figcaption>
+    </figure>
+  </section>
+
+  <section id="fa">
+    <h2 data-ani>Cosa gli puoi chiedere</h2>
+    <div class="colonne">
+      <div class="blocco" data-ani>
+        <h3>Parlare e dettare</h3>
+        <p>⌥ Spazio registra, trascrive in locale con whisper e risponde con una voce
+          neurale italiana (piper). Se non installi nessuno dei due, scrivi nella chat e
+          parla con la voce di sistema.</p>
+      </div>
+      <div class="blocco" data-ani>
+        <h3>Usare le app senza rubarti lo schermo</h3>
+        <p>Le apre <b>in background</b>, legge cosa serve, ti dà il resoconto e alla fine
+          richiude quelle che ha aperto lui. Le app che hai aperto tu non le tocca.</p>
+      </div>
+      <div class="blocco" data-ani>
+        <h3>Sapere cosa c'è sul Mac</h3>
+        <p>Inventario automatico di tutte le app installate (architettura, permessi,
+          cosa si può pilotare), spazio, RAM, carico, temperatura termica, perché
+          un'app si è piantata leggendo i crash report.</p>
+      </div>
+      <div class="blocco" data-ani>
+        <h3>Si costruisce i ponti per le app nuove</h3>
+        <p>Quando installi qualcosa, Fulcro legge il <i>bundle</i> della app — gli schemi
+          URL, i tipi di file che apre e i <b>comandi che la app dichiara da sé</b> nel suo
+          dizionario AppleScript — e se ne fa una scheda in
+          <code>~/.jarvis/app/integrazioni/</code>. Non è codice: è il vocabolario della
+          app, scritto da chi l'ha fatta. Se ne installi dieci insieme, ne legge tre per
+          giro: non è un lavoro urgente.</p>
+      </div>
+      <div class="blocco" data-ani>
+        <h3>A batteria sta fermo, sul serio</h3>
+        <p>Staccato, di default <b>non si sveglia proprio</b>: niente sorveglianza, niente
+          letture, niente anelli che girano (⌥ Spazio lo risveglia per la domanda che gli
+          fai). Misurato: <b>~<span data-conta="7">7</span> secondi di CPU per ora</b> a sonno, contro i ~<span data-conta="25">25</span> all'alimentatore
+          con la finestra chiusa. Se preferisci che si chiuda del tutto, glielo dici
+          («a batteria esci»). E se scotta, rallenta da solo.</p>
+      </div>
+      <div class="blocco" data-ani>
+        <h3>Ti risponde mentre sta ancora pensando</h3>
+        <p>Non aspetta di aver scritto tutta la frase per parlare: appena una è finita,
+          quella dice. Misurato sul modello locale a caldo: <b><span data-conta="1.6">1,6</span> secondi</b> per la prima
+          parola invece di ~<span data-conta="4">4</span>.</p>
+      </div>
+      <div class="blocco" data-ani>
+        <h3>Scuola e agenda</h3>
+        <p>Lista dei compiti in un file di testo, materie di domani lette dal tuo orario,
+          un controllo che ti avvisa se sconfini su un gioco mentre dovresti studiare.</p>
+      </div>
+      <div class="blocco" data-ani>
+        <h3>Cose del mondo reale</h3>
+        <p>Meteo, classifica di Formula 1, notizie, stato di una stampante 3D Bambu in
+          rete locale con avviso a voce quando la stampa finisce.</p>
+      </div>
+      <div class="blocco" data-ani>
+        <h3>Comandi veri, con un cancello</h3>
+        <p>Esegue comandi sul Mac: lettura libera, tutto il resto chiede un clic, e
+          <code>sudo</code>, portachiavi, <code>.ssh</code> e cancellazioni massive
+          sono rifiutati senza possibilità di override.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="requisiti">
+    <h2 data-ani>Cosa ti serve</h2>
+    <table data-ani>
+      <tr><th>Obbligatorio</th><td>Mac con chip Apple (M1, M2, M3, M4) e macOS 14 o più nuovo. Non è compilato per Intel.</td></tr>
+      <tr><th>Il cervello</th><td><a href="https://ollama.com" rel="noopener">Ollama</a> e il modello <code>qwen3:8b</code> (<code>ollama pull qwen3:8b</code>). Senza, Fulcro si accende ma non capisce.</td></tr>
+      <tr><th>Per ascoltarti</th><td><code>brew install whisper-cpp</code> e il modello <code>ggml-small.bin</code> in <code>~/.jarvis/models/</code>.</td></tr>
+      <tr><th>Per parlare bene</th><td><code>pip install piper-tts</code> e una voce italiana in <code>~/.jarvis/piper/</code>; altrimenti usa la voce di sistema.</td></tr>
+      <tr><th>Facoltativo</th><td>Una chiave Gemini in <code>~/.jarvis/gemini.txt</code> se vuoi le spiegazioni lunghe col cloud. Di default non esce niente.</td></tr>
+    </table>
+  </section>
+
+  <section id="installazione">
+    <h2 data-ani>Installazione</h2>
+    <ol class="passi" data-ani>
+      <li><b>Trascina <code>Fulcro.app</code> in Applicazioni</b> dopo aver aperto lo zip.</li>
+      <li><b>Aprilo con il tasto destro → Apri</b>, non con il doppio clic, e conferma
+        «Apri». La prima volta basta.</li>
+      <li>Se macOS dice che l'app è danneggiata o non verificabile:
+        <b>Impostazioni di Sistema → Privacy e sicurezza</b>, in basso c'è
+        <b>«Apri comunque»</b>.</li>
+      <li>Se preferisci la riga di comando, togli il flag di "scaricata da internet":
+        <pre><code>xattr -dr com.apple.quarantine /Applications/Fulcro.app</code></pre>
+        Scrittila tu: non premere pulsanti che eseguono comandi per te.</li>
+      <li>Dagli i permessi che chiede: <b>Registrazione schermo</b>, <b>Microfono</b>,
+        <b>Accessibilità</b>. Quelli che non dai restano scritti «negato», non
+        fingono di funzionare.</li>
+    </ol>
+    <p class="nota" style="margin-top:14px">Una cosa che vedrai e non è un errore: la cartella
+      dei dati si chiama <code>~/.jarvis/</code>, non <code>~/.fulcro/</code>. È il nome
+      storico del progetto ed è scritto nel programma: dentro ci sono solo i <em>tuoi</em>
+      file, e puoi cancellarli quando vuoi.</p>
+    <p class="perche">Perché questo passaggio: la firma con un account Apple sviluppatore
+      costa 99&nbsp;$ l'anno e serve a pagare un ente che controlli chi sei. Fulcro è un
+      progetto personale: il codice è di uno che si è annoiato a scrivere script, l'app non contiene chiavi né
+      dati di nessuno, e la scelta è stata non far pagare niente a nessuno. Se non ti
+      fidi, non scaricarlo: è esattamente il motivo per cui esiste questa pagina.</p>
+  </section>
+
+  <section id="privacy">
+    <h2 data-ani>Privacy, in concreto</h2>
+    <ul class="elenchi" data-ani>
+      <li>Le conversazioni restano in <code>~/.jarvis/logs/</code>, un file di testo che
+        puoi aprire e cancellare quando vuoi.</li>
+      <li>Le uniche cose che escono di rete sono <b>letture</b>: meteo, classifiche,
+        notizie, pagine web. Nessuna telemetria, nessun aggiornamento automatico.</li>
+      <li>Il cloud (Gemini) viene usato solo per spiegare un argomento, solo se hai
+        messo la tua chiave, e i testi personali — messaggi, mail, screenshot — non
+        vengono mandati: arriva solo «contenuto letto sul Mac, N caratteri».</li>
+      <li>Quando si costruisce il ponte di una app, se hai la chiave Gemini escono <b>solo</b>
+        il nome della app, il suo identificatore, la categoria, la versione e i comandi che
+        la app dichiara nel proprio bundle: <b>nessun percorso, nessun nome tuo</b>. È
+        scritto dentro la scheda stessa, così puoi controllare.</li>
+      <li>Il numero di telefono per le prove di invio si legge da
+        <code>~/.jarvis/numero.txt</code>: nell'app non c'è il numero di nessuno.</li>
+      <li><b>Non c'è niente di chi ha scritto Fulcro dentro Fulcro.</b> Nome, città,
+        età, contatti e host di rete non sono compilati nel programma: si leggono da
+        <code>nome.txt</code>, <code>citta.txt</code> e <code>raspberry.txt</code> nella
+        <em>tua</em> cartella <code>~/.jarvis/</code>. Al primo avvio l'app non sa niente
+        di te, ti chiede come chiamarti e da lì si costruisce la sua memoria
+        (<code>profilo.md</code>, <code>compiti.md</code>, <code>orario.md</code>), che
+        resta a casa tua e puoi cancellare quando vuoi.</li>
+    </ul>
+  </section>
+
+  <section id="non-fa">
+    <h2 data-ani>Cosa non fa</h2>
+    <ul class="elenchi" data-ani>
+      <li>Non legge le temperature dei sensori: macOS non le concede senza root, e root
+        non viene chiesto. Quelle righe sono state tolte invece di inventare i numeri.</li>
+      <li>Non manda mail da solo: serve una casella configurata sul tuo Mac.</li>
+      <li>Non gira su Intel, non gira su Windows, non ha un'app per il telefono (l'iPad
+        può parlargli attraverso la pagina web locale, se la attivi).</li>
+      <li>Non impara da solo quello che fanno altre persone: conosce solo il tuo Mac.</li>
+    </ul>
+  </section>
+
+  <section id="commenti">
+    <h2 data-ani>Commenti</h2>
+    <p class="sottotitolo" style="font-size:15px">Niente login, niente account. Può
+      scrivere solo <b>chi ha Fulcro installata</b>: il modulo chiede il codice di otto
+      caratteri che l'app mostra nella finestra — barra laterale → <b>Collegamenti</b> →
+      <b>Codice commenti</b>. È il modo più onesto che c'è per far parlare dell'app solo
+      con chi la sta usando davvero.</p>
+    <form id="modulo" data-ani class="commenti-form">
+      <label>Nome (o come ti chiami su internet)
+        <input id="nome" name="nome" maxlength="24" autocomplete="nickname" placeholder="gio" required></label>
+      <label>Cosa vuoi dire
+        <textarea id="testo" name="testo" maxlength="600" rows="3" required
+          placeholder="Un bug, una cosa che non torna, una idea. I link non passano: sono il 90% dello spam."></textarea></label>
+      <label>Codice dell'app
+        <input id="codice" name="codice" maxlength="8" autocomplete="off" spellcheck="false"
+          placeholder="8 lettere" required></label>
+      <div class="riga">
+        <button type="submit" id="invia">Pubblica</button>
+        <span id="stato" role="status" aria-live="polite"></span>
+      </div>
+    </form>
+    <div id="lista" data-ani class="commenti-lista"><p class="nota">Sto leggendo i commenti…</p></div>
+  </section>
+
+  <section class="chiusura" data-ani>
+    <h2 data-ani>Un progetto personale</h2>
+    <p class="nota">Programmatore: <b>gio</b>.</p>
+    <p>Un progetto personale, iniziato come esercizio e finito a diventare l'unico modo
+      che uso per parlare col computer. È gratuito e senza account. Se lo provi e
+      qualcosa non va, la cartella <code>~/.jarvis/logs/</code> contiene la verità su
+      quello che Fulcro ha fatto davvero.</p>
+    <a class="pulsone" href="download/Fulcro-1.1.zip" download>Scarica Fulcro 1.1 (2,9 MB)</a>
+    <p class="nota">Nessun account, nessun pagamento, nessun tracciamento su questa pagina.</p>
+  </section>
+</main>
+
+<footer>
+  <span>Fulcro 1.1 · macOS Apple Silicon · gira tutto in locale</span>
+  <a href="#top">torna su</a>
+</footer>
+<script src="commenti.js"></script>
+<script src="animazioni.js"></script>
+</body>
+</html>
